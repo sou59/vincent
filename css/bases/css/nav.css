@@ -27,7 +27,11 @@ a {
     background-color: rgb(223, 136, 136);
 }
 
-.logo {
-    width: 10%;
+.menu > a > img {
+    width: 30px;
+}
+
+.menu > a:last-child {
+    margin-left: auto;
 
 }
