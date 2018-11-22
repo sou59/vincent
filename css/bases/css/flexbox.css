@@ -1,0 +1,22 @@
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    width: 600px;
+    min-height: 400px;
+    border: 1px solid #CCC;
+    margin: 0 auto;
+    margin-top: 50vh;
+    transform: translateY(-50%);
+    background-color: #f0f0f0;
+
+
+}
+
+.container > *  {
+    padding: 5px;
+    background-color: royalblue;
+    border: 1px solid red;
+
+}

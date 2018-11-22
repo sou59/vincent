@@ -10,6 +10,8 @@
                 
             body {
                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   
+                margin: 0;
+                padding: 0;
             }
 
             .parent {
@@ -28,7 +30,7 @@
             }
 
             .enfant {
-                width: 100px;
+                /*width: 100px;*/
                 height: 100px;
                 background-color: seagreen;
                 color: white;
@@ -38,15 +40,45 @@
                position: absolute;
                top: 0;
                left: 0;
-
+               right: 0;
+               line-height: 100px;
             }
 
+            .menu {
+                background-color: orangered;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                display: flex;
+                z-index: 999;
+            }
+
+            .menu a {
+                text-decoration: none;
+                color: white;
+                padding: 15px;
+                display: block;
+            }
+
+            h1 {
+                margin-top: 50px;
+                padding-left: 30px;
+            }
 
 
         </style>
     </head>
 
     <body>
+
+        <nav class="menu">
+            <a href="#">Item 1</a>
+            <a href="#">Item 2</a>
+            <a href="#">Item 3</a>
+            <a href="#">Item 4</a>
+        </nav>
 
         <h1>Positionnement</h1>
 
@@ -56,6 +88,12 @@
                 Texte enfant
             </div>
         </div>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam saepe doloribus possimus quasi consequatur fugiat voluptatum ea fugit alias molestias dolores, minima temporibus corrupti expedita sequi nobis mollitia, obcaecati soluta ullam doloremque vitae quibusdam enim dolore? Consectetur, eligendi accusantium mollitia explicabo quae blanditiis ullam. Laborum, labore tenetur dolor itaque quas sequi esse, dolorem delectus nemo quae vitae consequuntur repellendus sunt est error voluptatum animi corrupti expedita beatae qui nihil. Cum blanditiis corrupti ipsum totam omnis vitae aspernatur? Nam animi ducimus et facilis maxime odio rerum ipsum aspernatur est. Nobis nesciunt unde fugit. Quo asperiores dignissimos laborum dolore praesentium rerum quae.</p>
+        <p>Architecto earum repellendus non fugiat laudantium eum quisquam ad atque, corrupti dolores minus quis illum expedita consequuntur facere ipsam quod. Doloribus quos distinctio quae maxime officiis quasi, facilis voluptatibus. Minus aut voluptates dolores aperiam dignissimos? Odit repellendus dolorum ullam odio labore esse ad vel ipsum quam quis veritatis impedit deserunt aperiam reprehenderit tempore, dolores sunt dignissimos ratione cupiditate aspernatur facere consectetur dicta earum iure. Iusto minus aperiam aliquam sit et cupiditate qui id, quia, rerum obcaecati quaerat excepturi consequatur facilis, quas ipsa nam ipsam tempora modi recusandae harum dignissimos eos consectetur molestiae. Nulla, iure eligendi veniam perspiciatis omnis animi expedita?</p>
+        <p>Explicabo voluptate similique quaerat, accusantium sequi voluptatem minus illum nihil reiciendis corporis dicta vel, praesentium adipisci. Error, nostrum! Quae, mollitia ullam repellendus, veniam sit consequuntur corrupti quidem non natus magni dolorem. Suscipit quia dignissimos voluptas minus quis doloremque nemo labore velit aut voluptate harum tempore maxime excepturi commodi veniam hic atque, laudantium ut esse aspernatur architecto aliquam aperiam quas! Officia nisi ea adipisci autem quo in illo a non vero sunt? Doloremque iste dicta eaque dolor eum impedit maiores explicabo consequatur asperiores illo in non voluptate ad obcaecati nulla saepe cumque, molestiae sequi ullam dolores eligendi, nisi dolorum voluptates optio?</p>
+        <p>Accusamus sequi voluptatem dolor minus rerum consequuntur modi quaerat aspernatur deleniti architecto hic quibusdam velit ducimus soluta nisi ratione pariatur, consectetur accusantium! Quibusdam voluptas cupiditate expedita, pariatur facere odio reprehenderit quasi doloremque, velit, iusto totam accusantium tempore! Hic aspernatur nostrum quidem ex, excepturi ullam quia nesciunt vitae quisquam modi magni velit aliquam magnam earum odit eveniet cupiditate molestiae repellat. Doloribus, cum pariatur voluptatum mollitia enim ipsum eos vitae, voluptatibus quae laborum labore ullam totam facere ex sequi atque magnam corporis architecto harum officiis eligendi est incidunt a? Doloribus, at officia. Omnis eos, natus eius expedita quia ipsa fugit pariatur? Sed.</p>
+        <p>Dolor non quod omnis quas repudiandae minus quidem quam illo nemo porro doloribus corporis commodi fugiat, ut ea, animi et est placeat eos laboriosam. Cum nulla perspiciatis at aliquid consequatur facilis repellendus, voluptates impedit asperiores ex, explicabo ut vero soluta quibusdam pariatur ea corrupti exercitationem veniam dolor iusto? Sequi reprehenderit ratione modi harum enim, minus, porro deserunt culpa eius tempora deleniti maxime, commodi quos iusto numquam beatae tenetur atque fugiat eveniet! Doloremque dolorum ducimus id quis omnis dicta, possimus, provident blanditiis, pariatur consectetur ipsa nesciunt cupiditate eaque eos assumenda. Dignissimos id debitis provident, animi ipsa nemo quaerat eaque quae veniam?</p>
         
 
     </body>

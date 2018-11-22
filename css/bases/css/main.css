@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+    font: 1em sans-serif;
+    background-color: #f0f0f0;
+}
+
+/*
+à l'ancienne avec une div supp après le flux
+div.clearfix en rétablissement tous les flux 
+fonctionne même sur ie 6
+.clearfix {
+    clear: both;
+}
+*/
+
+.clearfix {
+    /* si tu dépasses l'élément donc la card tu caches */
+    overflow: hidden;
+}
+
+.card {
+    background-color: rgb(224, 149, 243);
+    border: 0.0625em solid #CCC;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 3px #d87c7c;
+    height: 120px;
+  /*  height: 120px;*/
+}
+
+.card-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 16px;
+    border: 2px solid #d87c7c;
+}
+
+.card-text {
+    text-align: justify;
+}
+
+.container {
+    margin: 20px auto;
+    width: 380px;
+}
+
+/*
+utilisation du pseudo-element
+avec before
+insertion dans la card mais avant les élements intérieurs
+et after après la div.
+*/
+
+.card::before {
+    /*content: 'toto'; ou vide ''*/
+    display: block;
+    position: absolute;
+    /* sans content cela ne fonctionne pas */
+    content: '\25BA';
+    color: white;
+    background-color: #333;
+    border-radius: 50%;
+    border: 0.125em solid transparent;
+    opacity: 0;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    line-height: 100px;
+    transition: opacity .5s;
+
+}
+
+.card:hover::before {
+    opacity: 0.7;
+}
