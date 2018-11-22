@@ -1,0 +1,33 @@
+body {
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    
+}
+
+a {
+    text-decoration: non;
+    color: inherit;
+}
+
+.menu {
+    background-color: rgb(199, 91, 91);
+    display: flex;
+    color: white;
+    padding: 10px;
+
+}
+
+.menu > a {
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.menu > a:hover {
+    background-color: rgb(223, 136, 136);
+}
+
+.logo {
+    width: 10%;
+
+}
