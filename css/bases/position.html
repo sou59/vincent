@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Position</title>
+
+        <style>
+                
+            body {
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   
+            }
+
+            .parent {
+                background-color: #CCC;
+                border: 1px solid #666;
+                width: 600px;
+                margin: 0 auto;
+                height: 600px;
+                margin-top: 50vh;
+                transform: translateY(-50%);
+                text-align: center;
+            }
+
+            .enfant {
+                width: 100px;
+                height: 100px;
+                background-color: seagreen;
+                color: white;
+               /* text-align: center;
+               display: inline-block;
+               */
+               position: absolute;
+               top: 0;
+
+            }
+
+
+
+        </style>
+    </head>
+
+    <body>
+
+        <h1>Positionnement</h1>
+
+        <div class="parent">
+            Texte parent
+            <div class="enfant">
+                Texte enfant
+            </div>
+        </div>
+        
+
+    </body>
+
+</html>

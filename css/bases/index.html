@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr" dir="auto">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CSS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+        <script src="main.js"></script>
+
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+
+            p {
+                color: red;
+                border: 1px solid #5c5c5c;
+                padding: 10px;
+                text-align: center;
+                border-radius: 3px;
+            }
+
+            #main {
+                color: #333;
+            }
+
+            .word {
+                font-size: 22px;
+            }
+
+            .anotherWord {
+                color: orangered;
+            }
+
+            ul {
+                list-style: none; 
+                color: #fd79a8;
+            }
+
+/*
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+*/
+            a {
+                color: royalblue;
+                text-decoration: none;
+            }   
+
+
+            .menu>li>a:link {
+                color: inherit;
+            }
+            /*
+            .menu>li>ul {
+                visibility: hidden;
+                display: none;
+            } 
+            */
+
+            .fistLink ~ li {
+                background-color: hotpink;
+                color: white;
+            }
+
+            a:hover {
+                text-decoration: underline;
+                color: red;
+            }
+
+            a:active {
+                font-size: 20px;
+            }
+
+            a:visited {
+                color: red;
+            }
+
+            a:focus {
+                outline: none;
+                padding-left: 10px;
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+
+        <a href="">Lien 1</a>
+
+        <ul class="menu">
+            <li class="fistLink"><a href="">Item 1</a></li>
+            <li><a href="../../table.html">Item 2</a></li>
+            <li>
+                <a href="">Item 3</a>
+                <ul>
+                    <li>
+                        <a href="">Sub Item 1</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <div id="main">
+            <span class="word anotherWord"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, quia?</span></span>
+            <p style="color: #fd79a8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, architecto?</p>
+        </div>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Test button</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+
+    <style>
+        /*
+        exos créer un composant qui s'applique pour n'importe quelle balise
+        forme = bouton avec coin arrondi
+        aligner le texte à l'intérieur
+        même taille, même couleur, même dimension
+        et un hover pour modifier la couleur
+        voir la capture
+        élémet html
+        div
+        a
+        button
+        input
+        */
+
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .box-button {
+            border-radius: 10px;
+            background-color: green;
+            display: inline-block;
+            text-align: center;
+            padding: 10px 14px;
+            text-decoration: none;
+            color: antiquewhite;
+            cursor: pointer;
+            font: inherit;
+            border: 1px solid rgb(99, 128, 99);
+        }
+
+        .box-button:hover {
+            background-color: red;
+        }
+
+        .box-basic-trans {
+            transition: background-color 0.5s ease, padding .8s ease, transform 0.8s ease;
+        }
+        .box-basic-trans:hover {
+            padding: 12px;
+            transform: translateY(10px); 
+        }
+        .box-button-push {
+            border-width: 0;
+            box-shadow: 0 4px 0 rgb(183, 192, 97);
+        }
+
+        .box-button-push:hover {
+            border-width: 0 0 1px 0;
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 rgb(188, 201, 76);
+        }
+
+        /* 
+        ajouter une transition dans le changement de couleur
+        à mettre dans le button et pas dans le hover
+        transition : surQuoi temps modeTransition
+        ease fonction qui représente une courbe de bezier
+         transition linéaire (en douceur)
+        cubic-bezier(.05,1.48,.78,-0.43) 
+        transition: background-color 0.5s cubic-bezier(.05,1.48,.78,-0.43);
+        http://cubic-bezier.com/#.05,1.48,.78,-0.43
+        transition all (fonctionne sur tout, mais attention à la mémoire)
+        creer class pour les animation, et les ajouter si besoin
+        box-shadow : ombre de couleur ddeerrière le bouton
+         */
+
+    </style>
+</head>
+<body>
+    <h1>Mon titre</h1>
+
+    <div class="box-button box-button-push ">Texte 1</div>
+
+    <a class="box-button box-basic-trans" href="#">Texte 2</a>
+
+    <input class="box-button box-basic-trans" type="submit" value="Texte 3">
+
+    <button class="box-button box-button-push">Texte 4</button>
+
+</body>
+</html>
