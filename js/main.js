@@ -13,6 +13,11 @@ let chars = 'aabaksldjmeomljsmljq';
 
 console.log(chars.mdp(20));
 
+
+//utilisation du Number ajout d'une fonction dans la prototype
+Number.prototype.getRandomInt = function () {
+    return Math.floor(Math.random() * Math.floor(this));
+};
+
 let max = 100;
-// aller le github de vincent
-console.log(max.getR)
+console.log(max.getRandomInt());
