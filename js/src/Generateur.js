@@ -14,7 +14,7 @@ ex : 1aYd78E2a6
 
 class Generateur {
 
-    // constructeur avec longeur du mdp = taille, ou longeur défini par l'utilisateur toto
+    // constructeur avec longeur du mdp = taille à initialiser ici à 10, ou longeur défini par l'utilisateur toto
     constructor(taille = 10, chars = "") {
         this.taille = taille;
         this.chars = chars;
