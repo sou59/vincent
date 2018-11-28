@@ -1,28 +1,94 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Promise</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-</head>
-<body>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Promise</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+
+        <div id="content">
+
+        </div>
 
 
 
+        
 
-    
-    
+        <script>
+            /*
+            promesse utilisé avant, mais de moins en moins
+            surtout pas avec les framework.
+            Principe :  basé sur l'asynchronisme, on sais que qchose va arrivé mais on ne sais pas quand
+            fonction de rappel, action quand il aura un clik par exemple.
+            évolution du principe de callaback
+            - fnc en cas de succes
+            - une en cas d'erreur
+            -  pending temps de chargement donc attente du coup tu effectue qchose sera effectuer comme le loader par exemple
 
-    <script>
-        /*
-    for utilisé avant, mais de moins en moins
-    surtout pas avec les framework
+            
+            */
+            // fonction enparamètre, avec 2 arguments : resolve et reject
 
-        */
-    
-    </script>
-</body>
+            let promise = new Promise(function(resolve, reject) {
+                //  ralentir le tps pour simuler une attente
+            // simule une requête http de 3 sec
+                setTimeout( () => {
+                    console.log("HTTP request is sending");
+                    // execution de la fnction dans 2 secondes
+                    // requete http via js avec ajax, mais pas trop car alourdit le chargement
+
+                    resolve({
+                        // on résout en envoyant une réponse, 
+                        code: 201,
+                        message: 'Created',
+                        body: {
+                            name: 'toto'
+                        }
+                    });
+
+                // ralentit le tps de 3 sec
+                }, 3000);
+            });
+        // souvent les promise sont fournies dans les bibliothèques
+            // on peut faire appel à la promesse à différents endroits : 
+            // si la promise s'est déroulé correctement je fais...
+            // interface fluide : .then().then(). ils sont chainé pour une seule promise, le premier then affiche la promise, le 2e a comme paramètre le retour de 1e then, le then suivant a toujours besoin des éléments du then précédent
+            promise.then(
+                // le nomage dans les paramètres n'est pas important respinse, data...
+                function (response) {
+                    // rafraichir la page et 3 sec après regarder la console du navigateur
+                    console.log(response.body.name);
+                    // toujours faire un return avce les data du body pour le prochain then()
+                    return response.body;
+                }, 
+                function (){
+            
+                }
+            )
+            // on peux chainer plusieurs then()
+            .then(
+                function (data) {
+                    const elem = document.getElementById("content");
+                    console.log(data);
+                    elem.textContent = data.name;
+
+                    return "N'importe quoi... ";
+                    // l'important c'est qu'il y ai un return
+                }
+            )
+            .then(
+                function(message) {
+                console.log(message);
+                }
+            );
+
+    // pour les erreurs c'est pareil en utilisant reject
+
+
+        
+        </script>
+    </body>
 </html>

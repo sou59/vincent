@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Fluent Interface</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+        
+
+
+        <script>
+
+            /*
+            class User {
+                encapsulation : 
+                dans les attributs tous en privé
+                les setters et getters récupéreront les éléments
+                private name;
+            }
+
+            function App() {
+                (function(){
+
+                }());
+            }
+                */
+
+            let app = {
+                name: '',
+                // pb fonction fléchés la portée est différente du coup à l'extérieur on accède plus au this
+
+                setName: function (name) {
+                    this.name = name;
+
+                //  console.log(this);
+                    // ajout : 
+                    return this;
+                },
+                getName: function () {
+                    return this.name;
+                }
+
+            }
+        
+            app.setName("Toto")
+                .setName("Chuck")
+                .setName("Tata");
+
+            console.log(app.getName());    
+
+            /* fluent interface : forcément des éléments publique
+            les setters ne retourne rien
+            je fais un set et tout de suite après je peux réutiliser la référence à l'objet
+
+            utilisation de const : tu ne pas redéfinir, mais si c'est un tableau tu peux modifier le contenu
+
+            interface fluide: confort on créer et on peux retravailler dessus de suite, ex ci-dessus d'un setter qui retourne quchose
+            et on peux chainer plusieurs choses : 
+            app.setName("Toto").setName("Chuck").setName("Tata");
+            */
+
+
+        </script>
+    </body>
+</html>
