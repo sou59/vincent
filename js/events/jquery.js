@@ -62,20 +62,23 @@
         // ajouter un évènements sur l'élément
         on: function (event, callback) {
 
+            // ne pas oublier de cibler this.elements sinon il ne sait à quoi faire référence (undefine); tester avec console.log(this.elements) / console.log(elements) pour vérifier
             for (let elem of this.elements) {
                 elem.addEventListener(event, callback);
             }
+            
             return this;
         }
     }
 
 
-// objet window qui est global
-// tout est private ici, sauf quand on le met en globale par l'intermédiaire de window
-// écrire windows en minuscule
+    /* objet window qui est global
+    tout est private ici, sauf quand on le met en globale par l'intermédiaire de window
+    écrire windows en minuscule
+    */
 
     if (!window.$) {
-        // rendre globale myJquery
+        // rendre global myJquery
         window.$ = myJquery;
     }
 
