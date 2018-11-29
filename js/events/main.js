@@ -13,33 +13,49 @@ $.ready(function () {
     //console.log($.elements);
     // avec un tableau d'élements on peut leur faire tout ce qu'on veut
 
-
-    $.find('li, #menu').addClass('test');
-
-    
     $.find('li').on('click', function (event) {
         // modifier la couleur, récuperer event celui qui a été cliqué
         // target celui qui emet l'évènement li ou h1 (ou srcElement)
-        console.log(event);
 
         const elem = $.apply(this);
 
         //récupére un seul élément et lui applique ce que l'on veut
         // écrase ce qui existe
-        $.apply(this).addClass('toto');
+        // $.apply(this).addClass('toto');
+
+        $.find('li').addClass('toto');
 
         event.target.style.backgroundColor = '#FF00FF';
-        console.log(elem.hasClass('test'));
-        if (elem.hasClass('test')) {
-            this.add('toto');
-       };
-        
 
-
-        // alert("C'est moi TOTO!!");
-
-    });
-    
+    }); 
     
 
 });
+
+function test(str) {
+    str = 'toto';
+}
+
+name = 'wilfried';
+
+// copie de la valeur wilfried donné à test
+/*
+en mémoire voir cours Momo 
+name    0x001   wilfrid
+str     0x002   toto
+2 emplacements mémoire (uniquement pour les type promitifs)
+*/
+test(name);
+
+console.log(name);
+
+// si c'est un objet
+function tata(obj) {
+    obj.name = 'toto'; // adresse mémoire de la valeur
+}
+
+user = {name: 'Wilfrid'};
+
+tata(user);
+
+console.log(user.name);

@@ -37,11 +37,12 @@
         },
 
         hasClass: function (name) {
-            this.elements[0].className.split(' ').indexOf(name) !== -1;
+            return this.elements[0].className.split(' ').indexOf(name) === -1;
+            
         },
 
         addClass: function (names) {
-
+            // variable temporaire pour conserver l'état du tableau
             var tmp = this.elements;
             var that = this;
 
