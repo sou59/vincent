@@ -13,10 +13,33 @@ $.ready(function () {
     //console.log($.elements);
     // avec un tableau d'élements on peut leur faire tout ce qu'on veut
 
-    $.findAll('li').on('click', function () {
-       // $.addClass('toto');
 
-       alert("C'est moi TOTO!!");
+    $.find('li, #menu').addClass('test');
+
+    
+    $.find('li').on('click', function (event) {
+        // modifier la couleur, récuperer event celui qui a été cliqué
+        // target celui qui emet l'évènement li ou h1 (ou srcElement)
+        console.log(event);
+
+        const elem = $.apply(this);
+
+        //récupére un seul élément et lui applique ce que l'on veut
+        // écrase ce qui existe
+        $.apply(this).addClass('toto');
+
+        event.target.style.backgroundColor = '#FF00FF';
+        console.log(elem.hasClass('test'));
+        if (elem.hasClass('test')) {
+            this.add('toto');
+       };
+        
+
+
+        // alert("C'est moi TOTO!!");
+
     });
+    
+    
 
 });
