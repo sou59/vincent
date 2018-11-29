@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Buble</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            margin: 50px;
+        }
+
+        body * {
+            padding: 10px;
+            border: 1px solid red;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Propagation des évènements : bouillement
+    3 façons de mettre en place un évènement
+    - avec le onclick créer une dépendance dans le html, en Angular très utilisé
+        si click sur div 3, 3 alert à la suite
+    -->
+
+    <div onclick="alert(this.tagName  + 'Niveau 1')">
+        Niveau 1
+        <div onclick="alert(this.tagName  + 'Niveau 2')">
+            Niveau 2
+            <div onclick="alert(this.tagName  + 'Niveau 3')">Niveau 3</div>
+        </div>
+    </div>
+
+    <!-- autre manière de faire
+    -->
+
+    <h2>Event listener</h2>
+
+    <div class="level1"> 
+            Niveau 1
+        <div class="level2">
+                Niveau 2
+            <div class="level3">Niveau 3</div>
+        </div>
+    </div>
+
+
+
+    <script>
+        const elems = document.querySelectorAll(".level1, .level2, .level3"); // retourne un tableau d'élément
+
+       /*console.log(elems);  -> afficher les éléments
+        boucles en ES6
+        e j'attends un objet évènement
+        es6 on pt écrire e =>
+        idem qu'au dessus : bouillonement
+        si true inverse par de l'élément le plus haut et redescends, cad qud 
+        click sur div 3 alert 1 puis 2 puis 3 (l'élement cliqué)
+        ici mode capture, pour stopper l'évènement
+        */
+
+        for (let [index, elem] of elems.entries()) {
+            elem.addEventListener('click', (e) => {
+
+                /* en mode capture pour arrêter l'évènement
+                attention ici nous sommes dans une boucle
+
+                if(index == 2) {
+                    return;
+                }
+                */
+                alert(elem.tagName + 'Niveau' + (index + 1));
+
+            }, true);
+        }
+
+        // pyramide de doom voir image sur internet ! A éviter !
+        /* todolist le click sur le conteneur et pas sur chaque élément, il saura
+        lequel a été cliqué
+        parfois on est obligé de passer par le parent pour atteindre l'enfant
+        
+        */
+
+        
+    </script>
+
+</body>
+</html>
