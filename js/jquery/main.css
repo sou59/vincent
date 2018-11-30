@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    margin-top: 10px;
+    margin-top: 40px;
     color: #333;
 }
 
@@ -20,8 +20,13 @@ a {
     border: 1px #2d3436;
     background-color: #0984e3;
     color: #fff;
-    padding: 10px;
+    padding: 20px;
     border-radius: 3px;
+    background: #a9e4f7;
+    background: -moz-linear-gradient(-45deg, #a9e4f7 0%, #0fb4e7 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #a9e4f7 0%,#0fb4e7 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #a9e4f7 0%,#0fb4e7 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9e4f7', endColorstr='#0fb4e7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .todo .textTask {
@@ -29,8 +34,8 @@ a {
     width: 100%;
     padding: 8px;
     font-size: 18px;
-    color: #0984e3;
-    border: 1px solid #2d3436;
+    color: #0fb4e7;
+    border: 2px solid #0fb4e7;
     border-radius: inherit;
 }
 
@@ -49,16 +54,18 @@ a {
 
 .todo .tasks li span {
     flex-grow: 1;
+    font-size: 20px;
 }
 
 .todo .tasks li .todo-checkbox {
     margin-right: 10px;
+    font-size: 20px;
 }
 
 .todo-text-valid {
     text-decoration: line-through;
 }
-
+    
 [contenteditable="true"] {
     white-space: nowrap;
     overflow: hidden;

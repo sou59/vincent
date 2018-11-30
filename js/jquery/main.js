@@ -1,7 +1,5 @@
 $(document).ready(function () {
-
    // $('li').css('color', 'red');
-    
     // keyup à chaque lettre remplie le p
     /* keyup : pas bien!!
     var valinput = $('#userinput').keyup(function() {
@@ -24,14 +22,11 @@ $(document).ready(function () {
 // récupérer les texte, appuie sur entree ajoute dans li au fur et a mesure
 /*
     $('#userinput').on('keyup', function (e) {
-
         console.log(e);
         if (e.which == 13) { // or keyCode 13 = touche entrée
-
             let textinput = $(this).val();
             // si c'est vrai il n'y a pas d'espace
             if ($(this).val().trim()) {
-
                 var tmpl = 
                 '<li>'+
                     '<a href="#" class="todo-checkbox"><i class="fa fa-check-square"></i></a>'+
@@ -43,10 +38,8 @@ $(document).ready(function () {
             }
             // on vide le input
             $(this).val('');
-
         } 
         
-
         // on ajoute la valeur dans le p
         $(".insert").text($(this).val());
     });
@@ -69,9 +62,7 @@ $(document).ready(function () {
    
           if(target.parent().hasClass('todo-checkbox')) {
               target.toggleClass('fa-check-square fa-square');
-
               $(this).find('.todo-text').toggleClass('todo-text-valid');
-
           }
    
           // prendre l'event
@@ -82,29 +73,36 @@ $(document).ready(function () {
            // ul.removeChild(target);
         });
     }
-
 });
  
     $('.textTask').on('keyup', function (event) {
         if (event.keyCode === 13) {
             if ($(this).val().trim()) {
                 var tmpl =
-                    '<li>' +
+                   $('<li>' +
                         '<a href="#" class="todo-checkbox"><i class="fa fa-square"></i></a>' +
                         '<span class="todo-text" contenteditable="true">' + $(this).val() + '</span>' +
                         '<a href="#"><i class="todo-trash fa fa-trash"></i></a>' +
-                    '</li>';
+                    '</li>').hide();
 
                 $('.tasks').append(tmpl);
-                $(this).val('');
+                tmpl.fadeIn(1000);
             }
+            // on vide le input
+            $(this).val('');
         }
     });
 
+    $('todo').on('submit', 'button', function (event) {
+        event.preventDefault();
+        console.log(event);
 
-
-
-
-
-
+        var target = $( event.target );
+        console.log(event.target)
+        if(target.hasClass('removeTask')) {
+            if(target.hasClass('fa-check-square')) {
+                $("fa-check-square").parent().remove();
+            }
+        }
+    });
 });
