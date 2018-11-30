@@ -54,6 +54,7 @@ $(document).ready(function () {
 
     // précision li sinon cela ne marche qu'une fois, ainsi foncttion sur la checkbox ou poubelle correspond bien au 
     $('.tasks').on('click', 'li', function (event) {
+        event.preventDefault();
         console.log(event);
 
         var target = $( event.target );
@@ -65,24 +66,25 @@ $(document).ready(function () {
             target.removeClass("fa-check-square").addClass('fa-square');
           }
 */
-
+   
           if(target.parent().hasClass('todo-checkbox')) {
               target.toggleClass('fa-check-square fa-square');
 
               $(this).find('.todo-text').toggleClass('todo-text-valid');
 
           }
-
+   
           // prendre l'event
         if (target.hasClass('todo-trash')) {
             // event.currentTarget.remove();
-             $(this).remove();
-
+             $(this).slideUp(3000, function() {
+                this.remove();
            // ul.removeChild(target);
-        }
+        });
+    }
 
-    });
-
+});
+ 
     $('.textTask').on('keyup', function (event) {
         if (event.keyCode === 13) {
             if ($(this).val().trim()) {

@@ -58,3 +58,13 @@ a {
 .todo-text-valid {
     text-decoration: line-through;
 }
+
+[contenteditable="true"] {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
+
+[contenteditable="true"] > br {
+    display: none;
+}
