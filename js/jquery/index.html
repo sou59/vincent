@@ -5,17 +5,23 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>JQuery</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">    
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     </head>
     <body>
         
-        <form action="" method="post">
-            <input id="userinput" type="text" name="nom" value="">
-            <button id="submit" type="submit">Envoyer</button>
-        </form>
-        <p class="insert"></p>
-        <ul id="todo">
-            <li>Do something</li>
-        </ul>
+        <div class="container">
+                <div class="todo">
+                    <input type="text" class="textTask" placeholder="Saisissez une tache à effectuer">
+                    <ul class="tasks">
+                        <li>
+                            <a href="#" class="todo-checkbox"><i class="fa fa-square"></i></a>
+                            <span class="todo-text" contenteditable="true">do Something</span>
+                            <a href="#"><i class="todo-trash fa fa-trash"></i></a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
 
         <script src="jquery-3.3.1.min.js"></script>
         <script src="main.js"></script>
