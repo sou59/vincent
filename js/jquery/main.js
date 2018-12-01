@@ -60,21 +60,31 @@ $(document).ready(function () {
           }
 */
    
-          if(target.parent().hasClass('todo-checkbox')) {
-              target.toggleClass('fa-check-square fa-square');
-              $(this).find('.todo-text').toggleClass('todo-text-valid');
-          }
+        if(target.parent().hasClass('todo-checkbox')) {
+            
+            target.toggleClass('fa-check-square fa-square');
+
+                if ( target.hasClass('fa-check-square') ) {
+                    var n = $('fa-check-square').length;
+                    console.log(n)
+                    for (var i = 0; i < n; i++) {
+                        $( "span.count" ).text( "There are " + (n) + "éléments");  // Trigger the click to start
+                        //.click();
+                    }
+            }
+            $(this).find('.todo-text').toggleClass('todo-text-valid');
+        }
    
-          // prendre l'event
+        // prendre l'event
         if (target.hasClass('todo-trash')) {
             // event.currentTarget.remove();
              $(this).slideUp(3000, function() {
                 this.remove();
            // ul.removeChild(target);
-        });
-    }
-});
- 
+            });
+        }
+    });
+
     $('.textTask').on('keyup', function (event) {
         if (event.keyCode === 13) {
             if ($(this).val().trim()) {
@@ -88,12 +98,20 @@ $(document).ready(function () {
                 $('.tasks').append(tmpl);
                 tmpl.fadeIn(1000);
             }
+
             // on vide le input
             $(this).val('');
+
+            /* Ajouter une méthode permettant d'ajouter du style css */
+            $('ul.tasks').find('.todo-text')
+                .css('color', 'red')
+                .css('backgroundColor', 'yellow');
         }
     });
 
-    $('todo').on('submit', 'button', function (event) {
+    // dans la div.todo où se trouve la liste ul
+    // quand je click sur le button je supprime tous les éléments dont la class est check
+    $('.todo').on('click', 'button', function (event) {
         event.preventDefault();
         console.log(event);
 
@@ -101,8 +119,40 @@ $(document).ready(function () {
         console.log(event.target)
         if(target.hasClass('removeTask')) {
             if(target.hasClass('fa-check-square')) {
+                // le parent est bien le li
                 $("fa-check-square").parent().remove();
             }
         }
     });
+
+
+
+/* Ajouter une méthode permettant de selectionner un élément frère. */
+    $('.article-1, .article-2, .article-3').find('h2').next().addClass("test");
+
+/* Ajouter une méthode permettant d'afficher ou cacher un élément*/
+
+    function handler( event ) {
+        var target = $( event.target );
+        if ( target.is( "h2.titre" ) ) {
+        target.next().toggle();
+        }
+    }
+    $( "h2.titre" ).click( handler ).find( "p.contenu" ).hide();
+
+
+/*
+Jquery
+Ajouter un compteur de tâches validées
+*/
+
+/*
+Le compteur doit être représenté sous la forme : 3/12
+Ajouter une transition d'insertion
+
+Ajouter une transition lors de l'ajout d'une tâche dans la todo liste.
+Création d'un plugin
+
+Créer un plugin en vous aidant de la documentation.
+   */
 });

@@ -75,3 +75,15 @@ a {
 [contenteditable="true"] > br {
     display: none;
 }
+
+.article-1, .article-2, .article-3 {
+    width: 960px;
+    margin: 0 auto;
+    border: 1px solid purple;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.test {
+    color: royalblue;
+}
