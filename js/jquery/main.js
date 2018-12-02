@@ -1,11 +1,10 @@
 $(document).ready(function () {
    // $('li').css('color', 'red');
     // keyup à chaque lettre remplie le p
-    /* keyup : pas bien!!
+    /* keyup : à éviter!!
     var valinput = $('#userinput').keyup(function() {
         // récupération de la valeur tapé dans l'input
         var text = valinput.val();
-
         //insertion dans le p.insert
         $(".insert").text(text);
     });
@@ -13,11 +12,9 @@ $(document).ready(function () {
 /*
     $( "#submit" ).click(function() {
         var text = $("#userinput").val();
-
         $(".insert").text(text);
     });
 */
-
 // existe un évenement input (keyup, keypress avec tant de l'attence)
 // récupérer les texte, appuie sur entree ajoute dans li au fur et a mesure
 /*
@@ -33,7 +30,6 @@ $(document).ready(function () {
                     '<span class="todo-text>' +$(this).val()+'</span>'+
                     '<a href="#"><i class="todo-trash fa fa-trash"></i></a>'+
                 '</li>';
-
                 $('.todo').append(tmpl);   
             }
             // on vide le input
@@ -48,41 +44,41 @@ $(document).ready(function () {
     // précision li sinon cela ne marche qu'une fois, ainsi foncttion sur la checkbox ou poubelle correspond bien au 
     $('.tasks').on('click', 'li', function (event) {
         event.preventDefault();
-        console.log(event);
+        //console.log(event);
 
         var target = $( event.target );
-        console.log(event.target);
-/*
-        if ( target.hasClass( "fa-square" ) ) {
-            target.removeClass("fa-square").addClass('fa-check-square');
-          } else if(target.hasClass( "fa-check-square")) {
-            target.removeClass("fa-check-square").addClass('fa-square');
-          }
-*/
+       // console.log(event.target);
+
         if ( target.parent().hasClass('todo-checkbox') ) {
-            target.toggleClass('fa-check-square fa-square');
-            var lencheck = 0;
-            $('.tasks li').each(function () {
-                var lencheck = $('.fa-check-square').length;
-            });
-            if ( target.hasClass('fa-check-square') ) {
-                
-                $('.tasks li').each(function () {
-                    var lencheck = $('.fa-check-square').length;
-                });
-                var len = 1;
-                console.log(target)
-                $('.fa-check-square').each(function(){
-                    $("span.count").text( "There are " + (len) + "/"+ lencheck + " éléments");
-                    len++;
-                });
-            } else {
-                var lencheck = $('.fa-check-square').length;
-                console.log(lencheck);
-                $('.fa-square').each(function(){
-                    $( "span.count" ).text( "There are " + (lencheck) + " éléments");
-                    lencheck--;
-                });
+           //target.toggleClass('fa-check-square fa-square');
+
+            if ( target.hasClass( "fa-square" ) ) {
+                target.removeClass("fa-square").addClass('fa-check-square');
+
+                /* COMPTEUR */ 
+                var lencheck = function() {
+                    var n = $('.fa-check-square').length;
+                    var len = $('.fa-square').length;;
+                    $("span.count").text( "There are " + (n) + "/"+ (len+n) + " éléments"); 
+                }
+                lencheck();
+
+                $( "todo-checkbox" ).on( "click", lencheck );
+
+
+            } else if(target.hasClass( "fa-check-square")) {
+                target.removeClass("fa-check-square").addClass('fa-square');
+
+                /* COMPTEUR */ 
+                var lencheck = function() {
+                    var n = $('.fa-check-square').length;
+                    var len = $('.fa-square').length;;
+                    $("span.count").text( "There are " + (n) + "/"+ (len+n) + " éléments"); 
+                }
+                lencheck();
+
+                $( "todo-checkbox" ).on( "click", lencheck );
+
             }
             $(this).find('.todo-text').toggleClass('todo-text-valid');
         }
@@ -143,10 +139,10 @@ $(document).ready(function () {
         }
     });
 
-/* Ajouter une méthode permettant de selectionner un élément frère. */
+    /* Ajouter une méthode permettant de selectionner un élément frère. */
     $('.article-1, .article-2, .article-3').find('h2').next().addClass("test");
 
-/* Ajouter une méthode permettant d'afficher ou cacher un élément*/
+    /* Ajouter une méthode permettant d'afficher ou cacher un élément*/
 
     function handler( event ) {
         var target = $( event.target );
@@ -157,20 +153,12 @@ $(document).ready(function () {
     $( "h2.titre" ).click( handler ).find( "p.contenu" ).hide();
 
 
-/*
-Jquery
-Ajouter un compteur de tâches validées
-*/
+    /*
+    Le compteur doit être représenté sous la forme : 3/12 --> fait
+    Ajouter une transition d'insertion --> fait
 
-/*
-Le compteur doit être représenté sous la forme : 3/12
-Ajouter une transition d'insertion
+    Ajouter une transition lors de l'ajout d'une tâche dans la todo liste. --> fait
 
-Ajouter une transition lors de l'ajout d'une tâche dans la todo liste.
-
-
-Création d'un plugin
-
-Créer un plugin en vous aidant de la documentation.
-   */
+    Création d'un plugin
+    */
 });
